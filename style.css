@@ -1,0 +1,270 @@
+/* Basic SVG Animation Showcase */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 32px 20px 60px;
+  background: #ffffff;
+  color: #111111;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+h1 {
+  width: min(92%, 1000px);
+  margin: 0 auto 36px;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.container {
+  width: min(92%, 1000px);
+  margin: 0 auto;
+}
+
+main {
+  padding: 0;
+}
+
+.animation-section {
+  margin-bottom: 36px;
+  padding: 24px 0;
+  background: #ffffff;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.animation-section:last-child {
+  margin-bottom: 0;
+}
+
+.example-number {
+  margin: 0 0 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0 0 18px;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.animation-stage {
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.hint {
+  margin: 0;
+  color: #555555;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Example 1: Hover transitions
+   The flag and original star remain together in the same section.
+   Both are displayed at the same size.
+*/
+
+.example-one-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.example-one-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flag-icon,
+.star-icon {
+  width: 180px;
+  height: 120px;
+  cursor: pointer;
+  transform-origin: center;
+  transition: transform 0.4s ease;
+}
+
+.flag-icon .flag-blue {
+  fill: #0055A4;
+  transition: fill 0.4s ease;
+}
+
+.flag-icon:hover {
+  transform: scale(1.08);
+}
+
+.flag-icon:hover .flag-blue {
+  fill: #228B22;
+}
+
+.star-icon {
+  width: 180px;
+  height: 120px;
+}
+
+.star-icon .star-shape {
+  transition: fill 0.4s ease;
+}
+
+.star-icon:hover {
+  transform: scale(1.08);
+}
+
+.star-icon:hover .star-shape {
+  fill: #FFD700;
+}
+
+/* Example 2: Spinning loader */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 115px;
+  height: 115px;
+  animation: spin 1s linear infinite;
+}
+
+.spinner circle {
+  stroke: #333333;
+}
+
+/* Example 3: Self-drawing line */
+
+.drawing-svg {
+  width: min(90%, 650px);
+  height: auto;
+}
+
+.drawing-line {
+  stroke: #333333;
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation: draw-line 2.2s ease-out forwards;
+}
+
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Example 4: Fade-up entrance */
+
+.entrance-icon {
+  width: 125px;
+  height: 125px;
+  opacity: 0;
+  transform: translateY(45px);
+  animation: fade-up 0.9s ease-out 0.35s forwards;
+}
+
+.entrance-icon rect {
+  fill: #555555;
+}
+
+.entrance-icon circle {
+  fill: #ffffff;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(45px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.caption {
+  margin: 16px 0 0;
+  color: #444444;
+}
+
+code {
+  padding: 2px 5px;
+  background: #eeeeee;
+  border-radius: 3px;
+  font-family: Consolas, "Courier New", monospace;
+}
+
+/* Required reduced-motion guard: disable animations. */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .drawing-line {
+    stroke-dashoffset: 0;
+  }
+
+  .entrance-icon {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 24px 14px 50px;
+  }
+
+  h1 {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .animation-section {
+    padding: 20px 0;
+  }
+
+  .animation-stage {
+    min-height: 220px;
+  }
+}

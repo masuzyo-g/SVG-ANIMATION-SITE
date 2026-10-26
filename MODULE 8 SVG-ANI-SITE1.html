@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Animation Showcase</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h1>SVG Animation Showcase</h1>
+
+  <main class="container">
+
+    <!-- Example 1: Hover transition -->
+    <section class="animation-section">
+      <p class="example-number">Example 01</p>
+      <h2>Turning a Star & Country GOLD!</h2>
+
+      <div class="animation-stage">
+        <div class="example-one-icons">
+          <div class="example-one-item">
+            <svg class="flag-icon" viewBox="0 0 60 40" role="img" aria-labelledby="flag-title">
+              <title id="flag-title">French flag that changes its blue section to green when hovered</title>
+              <rect class="flag-blue" width="20" height="40" rx="5 0 0 5" fill="#0055A4"></rect>
+              <rect class="flag-white" x="20" width="20" height="40" fill="#ffffff"></rect>
+              <rect class="flag-red" x="40" width="20" height="40" rx="0 5 5 0" fill="#EF4135"></rect>
+            </svg>
+            <p class="hint">Hover over the flag</p>
+          </div>
+
+          <div class="example-one-item">
+            <svg class="star-icon" viewBox="0 0 100 100" role="img" aria-labelledby="star-title">
+              <title id="star-title">Star that changes to gold when hovered</title>
+              <polygon class="star-shape"
+                points="50,5 61,38 96,38 68,58 79,92 50,72 21,92 32,58 4,38 39,38"
+                fill="#777777"></polygon>
+            </svg>
+            <p class="hint">Hover over the star</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="caption">This example demonstrates a CSS <code>transition</code>. Hovering over the SVG smoothly changes its color, size, and rotation without using keyframes.</p>
+    </section>
+
+    <!-- Example 2: Spinning loader -->
+    <section class="animation-section">
+      <p class="example-number">Example 02</p>
+      <h2>Spinner Icon</h2>
+
+      <div class="animation-stage">
+        <svg class="spinner" viewBox="0 0 50 50" role="img" aria-labelledby="spinner-title">
+          <title id="spinner-title">A continuously rotating loading spinner</title>
+          <circle cx="25" cy="25" r="19" fill="none" stroke-width="5" stroke-linecap="round" stroke-dasharray="80 120"></circle>
+        </svg>
+        <p class="hint">Continuous rotation</p>
+      </div>
+
+      <p class="caption">This example demonstrates a continuously rotating SVG loader. The partial circle uses <code>stroke-dasharray</code>, while the <code>spin</code> keyframes rotate it 360 degrees.</p>
+    </section>
+
+    <!-- Example 3: Self-drawing line -->
+    <section class="animation-section">
+      <p class="example-number">Example 03</p>
+      <h2>Self-Drawing Line</h2>
+
+      <div class="animation-stage">
+        <svg class="drawing-svg" viewBox="0 0 500 140" role="img" aria-labelledby="drawing-title">
+          <title id="drawing-title">A curved SVG line that draws itself on page load</title>
+          <path class="drawing-line" d="M30 105 C110 15, 175 15, 250 78 S390 135, 470 30" fill="none" stroke-width="7" stroke-linecap="round"></path>
+        </svg>
+      </div>
+
+      <p class="caption">This example uses <code>stroke-dasharray</code> and <code>stroke-dashoffset</code> to create the effect of a line drawing itself when the page loads. The animation stays in its final drawn position with <code>animation-fill-mode: forwards</code>.</p>
+    </section>
+
+    <!-- Example 4: Fade-up entrance -->
+    <section class="animation-section">
+      <p class="example-number">Example 04</p>
+      <h2>Fade-Up Entrance</h2>
+
+      <div class="animation-stage">
+        <svg class="entrance-icon" viewBox="0 0 120 120" role="img" aria-labelledby="entrance-title">
+          <title id="entrance-title">A geometric SVG that fades in while moving upward</title>
+          <rect x="18" y="18" width="84" height="84" rx="18"></rect>
+          <circle cx="60" cy="60" r="22"></circle>
+        </svg>
+      </div>
+
+      <p class="caption">This example combines <code>opacity</code> and <code>transform: translateY()</code> inside one keyframe animation. A short delay makes the SVG enter after the page begins loading.</p>
+    </section>
+
+  </main>
+
+</body>
+</html>
